@@ -1,5 +1,15 @@
 const express = require('express');
 
-if(isNaN (req.params.id)){
-    res.sendStatus(400)
- }
+
+
+const middlewareValidationId = function (req , res , next){
+    const id = parseInt(req.params.id)
+    if(isNaN (id)){
+       return res.sendStatus(400);
+     }  
+}
+
+module.exports = middlewareValidationId;
+
+
+
