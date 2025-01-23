@@ -71,7 +71,38 @@ const store =  function(req, res) {
 
 //modify
 const modify = function(req,res){
-    res.send(`Modifica parziale del prodotto ${req.params.id}`)
+
+// Salviamo il valore numerico di id.
+    const id = parseInt(req.params.id)
+     let indexFound = false;
+//Cerchiamo il prodotto all interno dell array con forEach.    
+     prodotti.forEach((elm , index) => {
+        
+        
+        if(elm.id === id){
+          indexFound = index  
+        }
+    });
+        console.log(`valore di:${indexFound}`)
+        if(indexFound !== false){
+           let prodotto = prodotti[indexFound];
+           prodotto = {
+            ...prodotto,
+            ...req.body
+            
+           }
+
+
+           prodotti[indexFound] = prodotto
+
+           console.log(prodotti)
+           res.json(prodotto)
+        }else{
+            res.sendStatus(404);
+        }
+
+        
+
 };
 
 //delete
