@@ -37,7 +37,17 @@ const show =  function(req, res) {
 
 //store
 const store =  function(req, res) {
-    res.send('Creazione nuovo prodotto');
+    const id = prodotti[prodotti.length - 1].id + 1;
+    const newProduct = {
+        id,
+        ...req.body
+    }
+
+    prodotti.push(newProduct)
+    
+    
+    res.status(201)
+    res.json(newProduct)
  };
 
  //update

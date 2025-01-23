@@ -33,7 +33,7 @@ const prodotti = [
     {
       id : 5,
       titolo: "Torta paesana",
-      cdescrizione: "La torta paesana, conosciuta anche come torta di pane o torta nera, è un dolce tradizionale della Lombardia, in particolare della Brianza",
+      descrizione: "La torta paesana, conosciuta anche come torta di pane o torta nera, è un dolce tradizionale della Lombardia, in particolare della Brianza",
       immagine: `http://localhost:3000/images/torta_paesana.jpeg`,
       ingredienti: ["pane raffermo", "latte", "cacao", "zucchero", "uova", "pinoli", "uvetta", "amaretti"]
     }
