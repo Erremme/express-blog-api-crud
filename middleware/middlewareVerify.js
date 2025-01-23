@@ -7,6 +7,7 @@ const middlewareValidationId = function (req , res , next){
     if(isNaN (id)){
        return res.sendStatus(400);
      }  
+     next()
 }
 
 module.exports = middlewareValidationId;

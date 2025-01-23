@@ -24,13 +24,14 @@ const show =  function(req, res) {
     const id = parseInt(req.params.id)
 
 //Cerchiamo il prodotto all interno dell array con find.
-    const prodotto = prodotti.find(elm => elm.id == id)
+    const prodotto = prodotti.find(elm => elm.id === id)
 
 //Controllo per verificare che sia all interno dell array.
     if(!prodotto){
         res.sendStatus(404);
     }
-
+     
+    console.log(prodotto)
 //Restituiamo il prodotto che contiene lo stesso id della req.
     res.json(prodotto);
 };
@@ -52,7 +53,20 @@ const store =  function(req, res) {
 
  //update
  const update = function(req, res){
-    res.send(`Modifica integrale del prodotto ${req.params.id}`)
+// Salviamo il valore numerico di id.
+    const id = parseInt(req.params.id)
+
+//Cerchiamo il prodotto all interno dell array con find.
+    const prodotto = prodotti.find(elm => elm.id === id)
+    prodotto.titolo = req.body.titolo
+    prodotto.descrizione = req.body.descrizione
+    prodotto.immagine = req.body.immagine
+    prodotto.ingredienti = req.body.ingredienti
+
+
+    
+
+    res.json(prodotto)
 };
 
 //modify
