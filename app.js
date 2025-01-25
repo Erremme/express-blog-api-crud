@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 const productsRouter = require('./routers/productsRouter')
+const notFound = require('./middleware/middleWareNotFound')
+const errorsHandler = require ('./middleware/middleWareErrorHandlers')
 
 //registro il body-parser per "application/json"
 app.use(express.json());
@@ -16,6 +18,12 @@ app.get('/', (req, res) => {
 
 //Importo il prefisso delle rotte e le rotte
 app.use("/prodotti", productsRouter);
+
+//Middleware per rotte non trovate
+app.use(notFound);
+
+//Middleware per errori del server
+app.use(errorsHandler);
 
 
 app.listen(port, () => {

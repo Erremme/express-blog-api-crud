@@ -12,7 +12,7 @@ const middlewareValidationId = require('../middleware/middlewareVerify')
 router.get('/', controller.index )
 
 // show
-router.get('/:id', middlewareValidationId, controller.show);
+router.get('/:id', middlewareValidationId, controller.show, );
 
 // store
 router.post('/', controller.store);

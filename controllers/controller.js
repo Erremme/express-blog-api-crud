@@ -1,9 +1,9 @@
-const express = require('express');
+const express = require('express')
 const prodotti = require('../data/productsData');
 
 //index
 const index = (req, res) => {
-
+   
 //Inizializziamo una variabile e salviamo all suo interno l array.
    let filteredProducts = prodotti
 
@@ -82,7 +82,7 @@ const store = (req, res) => {
     prodotto.descrizione = req.body.descrizione
     prodotto.immagine = req.body.immagine
     prodotto.ingredienti = req.body.ingredienti
-
+   
     res.json(prodotto)
 };
 
@@ -136,10 +136,10 @@ const destroy = (req, res) => {
     const id = parseInt(req.params.id)
 
 // Cerchiamo il prodotto tramite id.
-    const product = prodotti.find(elm => elm.id === id);
+    const prodotto = prodotti.find(elm => elm.id === id);
 
 // Controlliamo che il prodotto sia all interno del nostro array.
-    if (!product) {
+    if (!prodotto) {
         res.status(404);
         return res.json({
         status: 404,
@@ -148,7 +148,7 @@ const destroy = (req, res) => {
 })
 }
 // Rimuoviamo il prodotto dalla lista
-    prodotti.splice(prodotti.indexOf(product), 1);
+    prodotti.splice(prodotti.indexOf(prodotto), 1);
 //Restituiamo al client il messaggio che indica che òla cancellazione è avvenuta.
     res.sendStatus(204)
 };
